@@ -1,15 +1,9 @@
 ﻿@model Form.Models.FormViewModel
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success">
-        @TempData["Success"]
-    </div>
-}
 @{
     ViewData["Title"] = "Sign Up | Form";
 }
 
-    <form asp-action="Subscription" method="post" class ="needs-validation">
+<form asp-action="Subscription" method="post" class="needs-validation">
         <div class="form-floating mb-3">
             <input asp-for="Name" type="text" class="form-control" id="floatingInput" placeholder="Name">
             <label asp-for="Name" for="floatingInput">Name</label>
