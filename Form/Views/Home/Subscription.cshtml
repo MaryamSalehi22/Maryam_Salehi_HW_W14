@@ -1,0 +1,61 @@
+﻿@model Form.Models.FormViewModel
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+@{
+    ViewData["Title"] = "Sign Up | Form";
+}
+
+    <form asp-action="Subscription" method="post" class ="needs-validation">
+        <div class="form-floating mb-3">
+            <input asp-for="Name" type="text" class="form-control" id="floatingInput" placeholder="Name">
+            <label asp-for="Name" for="floatingInput">Name</label>
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="LastName" type="text" class="form-control" id="floatingInput" placeholder="Family Name">
+            <label asp-for="LastName" for="floatingInput">Family Name</label>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="PhoneNumber" type="number" class="form-control" id="floatingInput" placeholder="Phone Number">
+            <label asp-for="PhoneNumber" for="floatingInput">Phone Number</label>
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="BirthDate" type="date" class="form-control" id="floatingInput" placeholder="BirthDate">
+            <label asp-for="BirthDate" for="floatingInput">BirthDate</label>
+            <span asp-validation-for="BirthDate" class="text-danger"></span>
+
+        </div>
+        <div class="form-floating">
+            <input asp-for="CourseCode" type="number" class="form-control" id="floatingPassword" placeholder="Course Code">
+            <label asp-for="CourseCode" for="floatingPassword">Course Code</label>
+            <span asp-validation-for="CourseCode" class="text-danger"></span>
+
+        </div>
+        <div>
+            <label asp-for="Gender" for="inputState" placeholder="Gender">Gender</label>
+            <select asp-for="Gender" onselect="arguments" id="inputState" class="form-control">
+                <option>Woman</option>
+                <option>Man</option>
+                <option>other</option>
+            </select>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+
+        </div>
+            <div class="form-check mt-4">
+                <input asp-for="Checked" type="checkbox" class="form-check-input" id="exampleCheck1">
+                <a class="form-check-label" for="exampleCheck1" asp-action="Rules">Check me out</a>
+                <span asp-validation-for="Checked" class="text-danger"></span>
+
+            </div>
+        <button type="submit" class="btn btn-primary mt-4">Submit</button>
+    </form>
