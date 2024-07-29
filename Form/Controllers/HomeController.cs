@@ -34,9 +34,8 @@ namespace Form.Controllers
                 }
                 return View("Subscription", form);
             }
-            var jsonData = JsonSerializer.Serialize(form);
 
-            return Json(jsonData);
+            return Json(form);
 
         }
         public IActionResult Rules()
