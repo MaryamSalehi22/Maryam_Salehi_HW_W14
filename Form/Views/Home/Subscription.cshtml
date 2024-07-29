@@ -2,54 +2,81 @@
 @{
     ViewData["Title"] = "Sign Up | Form";
 }
+<body>
+    <section class="pb-4">
+        <div class="border rounded-5">
 
-<form asp-action="Subscription" method="post" class="needs-validation">
-        <div class="form-floating mb-3">
-            <input asp-for="Name" type="text" class="form-control" id="floatingInput" placeholder="Name">
-            <label asp-for="Name" for="floatingInput">Name</label>
-            <span asp-validation-for="Name" class="text-danger"></span>
+            <section class="w-100 px-4 py-5 gradient-custom" style="border-radius: .5rem .5rem 0 0;">
+                <style>
+                    .gradient-custom {
+                        background: #6a11cb;
+                        background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+                        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+                    }
+                </style>
+                <div class="row d-flex justify-content-center">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                            <div class="card-body p-5 text-center">
 
-        </div>
+                                <form class="mb-md-5 mt-md-4 pb-5" asp-action="Subscription" method="post">
 
-        <div class="form-floating mb-3">
-            <input asp-for="LastName" type="text" class="form-control" id="floatingInput" placeholder="Family Name">
-            <label asp-for="LastName" for="floatingInput">Family Name</label>
-            <span asp-validation-for="LastName" class="text-danger"></span>
+                                    <h2 class="fw-bold mb-2 text-uppercase">Sign up</h2>
 
-        </div>
-        <div class="form-floating mb-3">
-            <input asp-for="PhoneNumber" type="number" class="form-control" id="floatingInput" placeholder="Phone Number">
-            <label asp-for="PhoneNumber" for="floatingInput">Phone Number</label>
-            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    <div class="form-floating mb-4">
+                                        <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+                                        <label asp-for ="Name" style="color:black">Name</label>
+                                        <span asp-validation-for="Name" class="text-danger"></span>
 
-        </div>
-        <div class="form-floating mb-3">
-            <input asp-for="BirthDate" type="date" class="form-control" id="floatingInput" placeholder="BirthDate">
-            <label asp-for="BirthDate" for="floatingInput">BirthDate</label>
-            <span asp-validation-for="BirthDate" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-floating mb-4">
+                                        <input asp-for="LastName" type="text" class="form-control" placeholder="Last Name">
+                                        <label asp-for="LastName" style="color:black">Last Name</label>
+                                        <span asp-validation-for="LastName" class="text-danger"></span>
 
-        </div>
-        <div class="form-floating">
-            <input asp-for="CourseCode" type="number" class="form-control" id="floatingPassword" placeholder="Course Code">
-            <label asp-for="CourseCode" for="floatingPassword">Course Code</label>
-            <span asp-validation-for="CourseCode" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-floating mb-4">
+                                        <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="Phone Number">
+                                        <label asp-for="PhoneNumber" style="color:black">Phone Number</label>
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
 
-        </div>
-        <div>
-            <label asp-for="Gender" for="inputState" placeholder="Gender">Gender</label>
-            <select asp-for="Gender" onselect="arguments" id="inputState" class="form-control">
-                <option>Woman</option>
-                <option>Man</option>
-                <option>other</option>
-            </select>
-            <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-floating mb-4">
+                                        <input asp-for="BirthDate" type="date" class="form-control" placeholder="Birth Date">
+                                        <label asp-for="BirthDate" style="color:black">Birth Date</label>
+                                        <span asp-validation-for="BirthDate" class="text-danger"></span>
 
-        </div>
-            <div class="form-check mt-4">
-                <input asp-for="Checked" type="checkbox" class="form-check-input" id="exampleCheck1">
-                <a class="form-check-label" for="exampleCheck1" asp-action="Rules">Check me out</a>
-                <span asp-validation-for="Checked" class="text-danger"></span>
+                                    </div>
+                                    <div class="form-floating mb-4">
+                                        <input asp-for="CourseCode" type="text" class="form-control" placeholder=" Corese Code">
+                                        <label asp-for="CourseCode" style="color:black">Course Code</label>
+                                        <span asp-validation-for="CourseCode" class="text-danger"></span>
 
-            </div>
-        <button type="submit" class="btn btn-primary mt-4">Submit</button>
-    </form>
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="Gender" class="control-label" style="margin-right : 450px"></label>
+                                        <select asp-for="Gender" class="form-control">
+                                            <option selected value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <span asp-validation-for="Gender" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox d-flex flex-row mt-3" style="margin-right:450px" >
+                                        <input asp-for="Checked" type="checkbox" class="custom-control-input" id="customControlInline">
+                                        <a asp-action="Rules" class="custom-control-label" for="customControlInline">PrivacyPolicy</a>
+                                        <span asp-validation-for="Checked" class="text-danger"></span>
+
+                                    </div>
+                                    <button data-mdb-button-init="" data-mdb-ripple-init="" class="btn btn-outline-light btn-lg px-5 mt-3" type="submit" data-mdb-button-initialized="true">Submit</button>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    </section>
+</body>
