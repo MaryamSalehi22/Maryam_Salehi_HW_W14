@@ -1,13 +1,10 @@
 using Form.Models;
-using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.Reflection;
-using System.Text.Json;
-
+using Newtonsoft.Json;
+using System.Xml;
 namespace Form.Controllers
 {
-    
+
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -34,9 +31,12 @@ namespace Form.Controllers
                 }
                 return View("Subscription", form);
             }
+            var json = JsonConvert.SerializeObject(form,Newtonsoft.Json.Formatting.Indented);
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot","Storge" ,"Info.txt");
+            System.IO.File.WriteAllText(path, json);
+           
 
-            return Json(form);
-
+            return RedirectToAction("Subscription");
         }
         public IActionResult Rules()
         {
